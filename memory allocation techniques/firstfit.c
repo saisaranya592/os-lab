@@ -1,6 +1,6 @@
 #include<stdio.h> 
 #define max 25 
-void main()
+int main()
 {
 int frag[max],b[max],f[max],i,j,nb,nf,temp; 
 static int bf[max],ff[max];
