@@ -1,15 +1,11 @@
 #include<stdio.h>
-#include<conio.h> 
 int fr[3], n, m;
-void
-display(); 
-void main()
+void display(); 
+int main()
 {
 int i,j,page[20],fs[10]; 
-int
-max,found=0,lg[3],index,k,l,flag1=0,flag2=0,pf=0; 
+int max,found=0,lg[3],index,k,l,flag1=0,flag2=0,pf=0; 
 float pr;
-clrscr();
 printf("Enter length of the reference string: "); 
 scanf("%d",&n);
 printf("Enter the reference string: "); 
@@ -36,7 +32,8 @@ for(i=0;i<m;i++)
 {
 if(fr[i]==-1)
 {
-fr[i]=page[j]; flag2=1; 
+fr[i]=page[j];
+flag2=1; 
 break;
 }
 }
@@ -68,7 +65,8 @@ break;
 }
 if(found==0)
 {
-max=lg[0]; index=0; 
+max=lg[0]; 
+index=0; 
 for(i=0;i<m;i++)
 {
 if(max<lg[i])
@@ -85,7 +83,7 @@ display();
 }
 printf("Number of page faults : %d\n", pf); 
 pr=(float)pf/n*100;
-printf("Page fault rate = %f \n", pr); getch();
+printf("Page fault rate = %f \n", pr);
 }
 void display()
 {
