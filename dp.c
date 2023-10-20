@@ -53,3 +53,7 @@ int main() {
         for (i = 0; i < howhung; i++) {
             printf("Enter philosopher %d position: ", (i + 1));
             scanf("%d", &hu[i]);
+        }
+    }
+}
+
