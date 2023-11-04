@@ -1,43 +1,48 @@
-#include<stdio.h>  
-#define max 25 
+#include<stdio.h>
+#define MAX 20
 int main()
 {
-int frag[max],b[max],f[max],i,j,nb,nf,temp,highest=0; 
-static int bf[max],ff[max];
-printf("\n\tMemory Management Scheme - Worst Fit"); 
-printf("\nEnter the number of blocks:");
-scanf("%d",&nb);
-printf("Enter the number of files:"); 
-scanf("%d",&nf);
-printf("\nEnter the size of the blocks:-\n"); 
-for(i=1;i<=nb;i++)
-{
-printf("Block %d:",i);
-scanf("%d",&b[i]);
-}
-printf("Enter the size of the files :-\n"); 
-for(i=1;i<=nf;i++)
-{
-printf("File %d:",i);
-scanf("%d",&f[i]);
-}
-for(i=1;i<=nf;i++)
-{
-for(j=1;j<=nb;j++)
-{
-if(bf[j]!=1) //if bf[j] is not allocated
-{
-temp=b[j]-f[i]; 
-if(temp>=0)
-if(highest<temp)
-{
-}
-}
-frag[i]=highest; bf[ff[i]]=1; highest=0;
-}
-ff[i]=j; highest=temp;
-}
-printf("\nFile_no:\tFile_size:\tBlock_no:\tBlock_size:\tFragement"); 
-for(i=1;i<=nf;i++)
-printf("\n%d\t\t%d\t\t%d\t\t%d\t\t%d",i,f[i],ff[i],b[ff[i]],frag[i]); 
+	int i,j,bs[MAX],b,f,fs[MAX],frag[MAX],temp,heighest=0;
+	static int bf[MAX],ff[MAX];
+	printf("MEMORY ALLOCATION METHOD - Worst FIT\n");
+	printf("Enter the no of Blocks:");
+	scanf("%d",&b);
+	printf("Enter the no of Files");
+	scanf("%d",&f);
+	for(i=1;i<=b;i++){
+		printf("Enter the Block Size %d:",i);
+		scanf("%d",&bs[i]);
+		bf[i]=0;
+	}
+	for(i=1;i<=f;i++){
+		printf("Enter the File size of %d:",i);
+		scanf("%d",&fs[i]);
+	}
+	for(i=1;i<=f;i++)
+	{
+		for(j=1;j<=b;j++)
+		{
+			if(bf[j]!=1)
+			{
+				temp=bs[j]-fs[i];
+				if(temp>=0)
+				{
+					if(heighest<temp){
+					
+						ff[i]=j;
+						heighest=temp;
+					}
+				}
+			}
+		}
+		frag[i]=heighest;
+		bf[ff[i]]=1;
+		heighest=0;
+	}
+	printf("\n%d---%d",bs[1],frag[1]);
+	printf("\nFile_no:\tFile_size :\tBlock_no:\tBlock_size:\tFragement");
+	for(i=1;i<=f;i++)
+	{
+		printf("\n%d\t\t%d\t\t%d\t\t%d\t\t%d\n",i,fs[i],ff[i],bs[ff[i]],frag[i]);
+	}
 }
